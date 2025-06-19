@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png" href="logo.jpg"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salman Portfolio</title>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS Styles -->
+    <style>
+        /* Basic Reset and Body Styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            background-color: #010e1b;
+            margin: 0; /* Remove all default margin */
+            padding: 0; /* Remove all default padding */
+            color: #000;
+        }
+
+        /* Main Resume Container */
+        .resume-container {
+            max-width: 56rem;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 2rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            color: #000;
+        }
+
+        /* Navigation Bar Styles */
+        nav {
+            width: 100vw;
+            background: #0a223a;
+            height: 90px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+        }
+        nav > div {
+            max-width: 56rem;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 90px; /* Ensure inner content fills nav height */
+            padding: 0 2rem;
+        }
+        nav a {
+            color: #dee2e6;
+            text-decoration: none;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Header Styles */
+        header {
+            margin-bottom: 1.5rem;
+        }
+        header h1 {
+            font-size: 1.875rem; /* text-3xl */
+            font-weight: 700; /* font-bold */
+            color: #000;
+        }
+        header .subtitle {
+            font-size: 1rem; /* text-md */
+            font-weight: 600; /* font-semibold */
+            letter-spacing: 0.1em; /* tracking-widest */
+            color: #000;
+        }
+        header .contact-info {
+            margin-top: 0.75rem;
+            font-size: 0.75rem; /* text-xs */
+            color: #000;
+        }
+        header .contact-info .links {
+            display: flex;
+            align-items: center;
+        }
+        header .contact-info .links a {
+            margin-right: 1rem;
+        }
+        header a {
+            color: #000;
+            text-decoration: none;
+        }
+        header a:hover {
+            text-decoration: underline;
+        }
+
+        /* Section Styles */
+        section {
+            margin-bottom: 1.5rem;
+        }
+        .section-title {
+            font-size: 1.125rem; /* text-lg */
+            font-weight: 700; /* font-bold */
+            color: #000;
+            border-bottom: 1px solid #000;
+            padding-bottom: 0.25rem;
+            margin-bottom: 0.1rem; /* Reduced from 0.5rem */
+        }
+        p, li {
+            font-size: 0.875rem; /* text-sm */
+            line-height: 1.4; /* leading-normal */
+            color: #000;
+        }
+        strong, .font-bold {
+            font-weight: 700;
+        }
+        .font-semibold {
+            font-weight: 600;
+        }
+
+        /* Education Section Layout */
+        .education-entry {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.75rem;
+        }
+        .education-entry div:last-child {
+            text-align: right;
+            white-space: nowrap;
+            padding-left: 1rem;
+        }
+
+        /* Skills & Certifications List Styles */
+        .skills-list, .certs-list {
+            list-style-type: disc;
+            list-style-position: inside;
+            padding-left: 0;
+            margin: 0;
+        }
+        .certs-list {
+            list-style-position: outside;
+            padding-left: 1.25rem;
+        }
+        .skills-list li, .certs-list li {
+            margin-bottom: 0.25rem;
+        }
+        .skills-list li strong {
+            font-weight: 600;
+        }
+        
+        /* Projects Section Layout */
+        .project {
+            margin-bottom: 0.3rem; /* Reduced for a slight gap */
+            margin-top: 0;
+        }
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+        .project-header h3 {
+            margin-bottom: 0;
+        }
+        .project ul {
+            list-style-type: disc;
+            list-style-position: outside;
+            padding-left: 1.25rem;
+            margin-top: 2px; /* Reduce or set to 0 for no gap */
+        }
+        .project li {
+            margin-bottom: 0.25rem;
+        }
+        .project a {
+             color: #000;
+             text-decoration: none;
+             font-weight: 600;
+        }
+        .project a:hover {
+            text-decoration: underline;
+        }
+
+        .project-title-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 4px; /* Small gap below the title */
+        }
+        .project-title {
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .project-link {
+            font-weight: bold;
+            font-size: 15px;
+        }
+        .project-desc {
+            margin-top: 0;
+            margin-bottom: 14px; /* Space between projects */
+        }
+        ul {
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background-color: #fff;
+                padding: 0;
+            }
+            .resume-container {
+                box-shadow: none;
+                margin: 0;
+                max-width: 100%;
+                border: none;
+            }
+        }
+
+        /* Additional Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0; /* Remove margin */
+            font-size: 15px;
+        }
+        h1 {
+            margin: 0 0 2px 0;
+            font-size: 26px;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+        }
+        .subtitle {
+            margin: 0 0 4px 2px;
+            font-size: 14px;
+            letter-spacing: 2px;
+            font-weight: 500;
+        }
+        .contact-line {
+            margin: 0 0 0 2px;
+            font-size: 14px;
+            line-height: 1.2;
+        }
+        .links-line {
+            margin: 0 0 0 2px;
+            font-size: 14px;
+            line-height: 1.2;
+        }
+        .links-line a {
+            color: #444;
+            text-decoration: underline;
+            margin-right: 16px;
+            font-size: 14px;
+        }
+        .edu-entry {
+            margin-bottom: 6px; /* Small gap between colleges */
+            line-height: 1.1;
+        }
+        .edu-title {
+            font-weight: bold;
+        }
+        .edu-details {
+            margin-left: 0;
+        }
+
+        .top-section {
+            margin-bottom: 12px; /* Adjust this value for more/less gap */
+        }
+    </style>
+</head>
+<body>
+    <div>
+    <!-- Navigation Bar -->
+    <nav style="width:100vw;background:#0a223a;height:90px;box-shadow:0 2px 8px rgba(0,0,0,0.04);margin:0;padding:0;display:flex;align-items:center;">
+        <div style="display:flex;align-items:center;justify-content:space-between;width:100%;">
+            <div style="font-size:2rem;font-weight:700;color:#dee2e6;letter-spacing:2px;margin-left:0;font-family:'Inter',sans-serif;flex:1;text-align:left;">
+                Resume
+            </div>
+            <div style="display:flex;gap:32px;margin-right:3.5rem;">
+                <a href="index.html" style="color:#fff;font-size:1.15rem;font-family:'Inter',sans-serif;font-weight:500;text-decoration:none;">Home</a>
+                <a href="assets/resume_salmanF.pdf" download style="color:#fff;font-size:1.15rem;font-family:'Inter',sans-serif;font-weight:500;text-decoration:none;">Download PDF</a>
+            </div>
+        </div>
+    </nav>
+    <div class="resume-container">
+        <header>
+          <div class="top-section">
+            <h1>SHAIK ALE SHIDH SALMAN</h1>
+            <div class="subtitle">STUDENT</div>
+            <div class="contact-line">+91 63022309430</div>
+            <div class="contact-line">H.No: 18-1-86 , Rikshaw colony , Bhadrachalam ,Telangana, India 507111</div>
+            <div class="links-line">
+              <a href="mailto:salman.shaik0212@gmail.com">salman.shaik0212@gmail.com</a>
+              <a href="#">LinkedIn</a>
+              <a href="#">Github</a>
+              <a href="#">LeetCode</a>
+              <a href="#">HackerRank</a>
+            </div>
+          </div>
+        </header>
+
+        <section>
+            <h2 class="section-title">Profile</h2>
+            <p>
+                Motivated computer science student with a solid foundation in C, Python, Java, and JavaScript. Experienced in writing efficient, scalable code through projects. Strong problem-solving and debugging skills. Quick learner, passionate about applying knowledge to real-world challenges and contributing to impactful software in collaborative environments.
+            </p>
+        </section>
+        
+        <section>
+            <h2 class="section-title">Education</h2>
+            <div class="edu-entry">
+              <span class="edu-title">Anurag university</span> 2022 - 2026<br>
+              <span class="edu-details">
+                Bachelor of technology in Computer Science and Engineering (8.23 CGPA in 5<sup>th</sup> semester)
+              </span>
+            </div>
+            <div class="edu-entry">
+              <span class="edu-title">Telangana Minorities Residential Junior College(B), Yellandu</span> 2020 - 2022<br>
+              <span class="edu-details">
+                11<sup>th</sup> – 12<sup>th</sup> grade Physics, Chemistry, Mathematics (78.3% in 12<sup>th</sup> TSBIE board examinations)
+              </span>
+            </div>
+            <div class="edu-entry">
+              <span class="edu-title">Telangana Minorities Residential School(B), Yellandu</span> 2017 - 2020<br>
+              <span class="edu-details">
+                8<sup>th</sup> – 10<sup>th</sup> grade 93% in 10<sup>th</sup> TSBIE board examinations
+              </span>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">Skills & abilities</h2>
+            <ul class="skills-list">
+                <li><strong>Programming Languages:</strong> C, Python, Java, JavaScript</li>
+                <li><strong>Front-End Development:</strong> HTML, CSS</li>
+                <li><strong>Back-End Development:</strong> NodeJS</li>
+                <li><strong>Databases:</strong> SQL, MongoDB</li>
+                <li><strong>Design:</strong> AutoCAD</li>
+                <li><strong>OS:</strong> Linux</li>
+                <li><strong>Data Structures & Algorithms</strong></li>
+            </ul>
+        </section>
+
+        <section>
+            <h2 class="section-title">Projects</h2>
+            <div class="project">
+                <div class="project-header">
+                    <h3 class="font-bold">Hotel Management System</h3>
+                    <a href="https://github.com/your-github/Hotel-ManagemetSystem">Github-HotelManagemetSystem</a>
+                </div>
+                <ul>
+                    <li>Full-Stack Hotel Management System: Built with Spring Boot (backend) and React (frontend) to manage hotel operations like room booking and administration.</li>
+                    <li><strong class="font-semibold">Backend Features:</strong> RESTful APIs, JWT-based authentication, role-based access control, and MySQL database integration with Hibernate ORM.</li>
+                    <li><strong class="font-semibold">Frontend Features:</strong> Responsive React UI with role-specific dashboards, room search, and booking functionality.</li>
+                    <li><strong class="font-semibold">Technologies Used:</strong> Spring Boot, React, MySQL, Hibernate, JWT, Bootstrap, and Axios.</li>
+                </ul>
+            </div>
+            <div class="project">
+                 <div class="project-header">
+                    <h3 class="font-bold">Expense Tracker</h3>
+                    <a href="https://github.com/your-github/Expense-Tracker">Github-ExpenseTracker</a>
+                </div>
+                 <ul>
+                    <li>Developed a GUI-based Expense Tracker using Python and Tkinter, enabling users to manage and categorize expenses effectively.</li>
+                    <li>Implemented key features such as adding expenses, filtering by category, and calculating totals.</li>
+                    <li>Designed a dynamic and user-friendly interface with dropdowns, buttons, and categorized filtering for enhanced usability.</li>
+                    <li>Applied modular programming and exception handling to ensure maintainability, scalability, and data accuracy.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">Certifications</h2>
+            <ul class="certs-list">
+                <li>CERTIFICATE OF COMPLETION 100 Days of Code: The Complete Python Pro Bootcamp Udemy</li>
+                <li>STATEMENT OF ACHIEVEMENT CISCO</li>
+                <li>COURSE COMPLETION CERTIFICATE INFOSYS SPRINGBOARD (Design Thinking, Python Data Structures and Algorithms, Java Programming Fundamentals, Introduction to Machine Learning, Cyber Security)</li>
+                <li>COURSE COMPLETION CERTIFICATE INFOSYS SPRINGBOARD</li>
+                <li>PROOF OF COMPLETION (Introduction to MongoDB)</li>
+                <li>CERTIFICATION MICROSOFT CERTIFIED AZURE FUNDAMENTALS</li>
+            </ul>
+        </section>
+    </div>
+
+</body>
+</html>
